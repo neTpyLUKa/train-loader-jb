@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestSource" tests="12" skipped="0" failures="0" errors="0" timestamp="2020-04-03T07:29:14" hostname="kiruha" time="0.637">
+<testsuite name="TestSource" tests="12" skipped="0" failures="0" errors="0" timestamp="2020-04-03T12:23:05" hostname="kiruha" time="0.389">
   <properties/>
-  <testcase name="stressThreeInAnswer" classname="TestSource" time="0.179"/>
-  <testcase name="stressManyRepeating" classname="TestSource" time="0.394"/>
-  <testcase name="segmented" classname="TestSource" time="0.004"/>
+  <testcase name="stressThreeInAnswer" classname="TestSource" time="0.148"/>
+  <testcase name="stressManyRepeating" classname="TestSource" time="0.198"/>
+  <testcase name="segmented" classname="TestSource" time="0.002"/>
   <testcase name="consequentShuffle" classname="TestSource" time="0.001"/>
-  <testcase name="stressTwoInAnswer" classname="TestSource" time="0.039"/>
-  <testcase name="simple" classname="TestSource" time="0.001"/>
+  <testcase name="stressTwoInAnswer" classname="TestSource" time="0.025"/>
+  <testcase name="simple" classname="TestSource" time="0.0"/>
   <testcase name="overlappingMiddle" classname="TestSource" time="0.0"/>
   <testcase name="consequent" classname="TestSource" time="0.001"/>
   <testcase name="overlapping" classname="TestSource" time="0.0"/>
   <testcase name="empty" classname="TestSource" time="0.001"/>
   <testcase name="overlappingShuffle" classname="TestSource" time="0.0"/>
-  <testcase name="stressOneInAnswer" classname="TestSource" time="0.014"/>
+  <testcase name="stressOneInAnswer" classname="TestSource" time="0.01"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[9998
 9998

@@ -4,7 +4,7 @@ import java.util.*
 
 data class Train(var id: Int, val timeStart: Long, val timeEnd: Long, val payment: Long)
 
-data class Value(val start: Long?, val prev: Long?, val value: Long, val id: Int)
+data class Value(val value: Long, val id: Int?)
 
 fun comp() = kotlin.Comparator<Train> { lhs, rhs ->
     if (lhs.timeEnd != rhs.timeEnd) {
@@ -16,39 +16,33 @@ fun comp() = kotlin.Comparator<Train> { lhs, rhs ->
 
 fun solve(trains: MutableList<Train>): Pair<List<Int>, Long> {
     trains.sortWith(comp())
+    val trainMap = mutableMapOf<Int, Train>()
+    trains.forEach { trainMap[it.id] = it }
     val dp = TreeMap<Long, Value>()
     var mx: Long = 0L
-    var prev: Long? = null
-    var start: Long? = null
-
+    var id: Int? = null
     for (train in trains) {
         val tEnd = train.timeEnd
         val kv = dp.floorEntry(train.timeStart)
-        if (kv == null) {
-            if (mx < train.payment) {
-                mx = train.payment
-                start = tEnd
-                prev = null
-            }
-        } else {
-            val cand = kv.value.value + train.payment
-            if (mx < cand) {
-                mx = cand
-                start = tEnd
-                prev = kv.value.start
-            }
+        var cand = train.payment
+        if (kv != null) {
+            cand += kv.value.value
+        }
+        if (mx < cand) {
+            mx = cand
+            id = train.id
         }
         val value = dp[tEnd]
         if (value != null && value.value == mx) {
             continue
         }
-        dp[tEnd] = Value(start, prev, mx, train.id)
+        dp[tEnd] = Value(mx, id)
     }
 
     val ans = mutableListOf<Int>()
-    while (start != null) {
-        ans.add(dp[start]!!.id)
-        start = dp[start]!!.prev
+    while (id != null) {
+        ans.add(id)
+        id = dp.floorEntry(trainMap[id]!!.timeStart)?.value?.id
     }
     return Pair(ans, mx)
 }
