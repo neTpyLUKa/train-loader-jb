@@ -5,15 +5,6 @@ import kotlin.random.Random
 import kotlin.test.assertEquals
 import org.junit.Test as test
 
-/*
-fun getInputString(trains: List<TrainInput>): String {
-    var input = "${trains.size}\n"
-    for (train in trains) {
-        input += "${train.id} ${train.timeStart} ${train.timeEnd} ${train.payment}"
-    }
-    return input
-}*/
-
 fun bruteForce(trains: List<Train>): Long {
     val one = 1
     val size = trains.size
